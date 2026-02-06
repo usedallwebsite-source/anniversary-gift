@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Anniversary ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff4d6d, #ffb3c1);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    .gift-box {
+      width: 160px;
+      height: 160px;
+      background: #ff1e56;
+      border-radius: 15px;
+      position: relative;
+      margin: auto;
+      cursor: pointer;
+      box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+
+    .gift-box:hover {
+      transform: scale(1.05);
+    }
+
+    .gift-lid {
+      width: 170px;
+      height: 60px;
+      background: #ff0f4a;
+      border-radius: 15px;
+      position: absolute;
+      top: -45px;
+      left: -5px;
+      transition: 0.6s ease;
+    }
+
+    .ribbon {
+      width: 30px;
+      height: 160px;
+      background: gold;
+      position: absolute;
+      left: 65px;
+      top: 0;
+      border-radius: 10px;
+    }
+
+    .ribbon2 {
+      width: 160px;
+      height: 30px;
+      background: gold;
+      position: absolute;
+      top: 65px;
+      left: 0;
+      border-radius: 10px;
+    }
+
+    .message-box {
+      display: none;
+      margin-top: 25px;
+      background: rgba(255,255,255,0.2);
+      padding: 20px;
+      border-radius: 15px;
+      animation: fadeIn 1s ease;
+    }
+
+    .message-box h2 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .message-box p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .photos {
+      margin-top: 15px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .photos img {
+      width: 90px;
+      height: 90px;
+      border-radius: 15px;
+      object-fit: cover;
+      border: 2px solid white;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(15px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .heart {
+      position: absolute;
+      color: white;
+      font-size: 20px;
+      animation: float 5s infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0% {transform: translateY(0);}
+      100% {transform: translateY(-800px);}
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 25px;
+      background: white;
+      color: #ff1e56;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: gold;
+      color: black;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Happy Anniversary My Love ❤️</h1>
+    <p>Click the gift box to open your surprise 🎁</p>
+
+    <div class="gift-box" onclick="openGift()">
+      <div class="gift-lid" id="lid"></div>
+      <div class="ribbon"></div>
+      <div class="ribbon2"></div>
+    </div>
+
+    <div class="message-box" id="message">
+      <h2>💌 My Special Gift for You</h2>
+      <p>
+        Happy Anniversary my love ❤️ <br><br>
+        You are my favorite person in the whole world 😘<br>
+        Thank you for loving me, caring for me, and staying with me 💕<br><br>
+        I promise I will always choose you 🥺❤️
+      </p>
+
+      <div class="photos">
+        <img src="https://i.ibb.co/0y0y0y0/photo1.jpg" alt="photo1">
+        <img src="https://i.ibb.co/0y0y0y0/photo2.jpg" alt="photo2">
+        <img src="https://i.ibb.co/0y0y0y0/photo3.jpg" alt="photo3">
+      </div>
+
+      <button onclick="alert('I LOVE YOU FOREVER ❤️🥺')">Click Me 😘</button>
+    </div>
+  </div>
+
+  <script>
+    function openGift() {
+      document.getElementById("lid").style.transform = "rotate(-20deg) translateY(-70px)";
+      document.getElementById("message").style.display = "block";
+    }
+
+    // floating hearts
+    for (let i = 0; i < 20; i++) {
+      let heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = Math.random() * 100 + "vh";
+      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      document.body.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
