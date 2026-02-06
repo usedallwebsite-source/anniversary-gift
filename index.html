@@ -11,39 +11,37 @@
       padding: 0;
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #ff4d6d, #ffb3c1);
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      overflow: hidden;
+      justify-content: flex-start;
       color: white;
-      text-align: center;
-    }
-
-    .container {
-      padding: 20px;
+      overflow-x: hidden;
+      padding-top: 50px;
     }
 
     h1 {
       font-size: 2rem;
-      margin-bottom: 10px;
+      margin: 0;
     }
 
     p {
       font-size: 1.1rem;
-      margin-bottom: 20px;
+      margin: 5px 0 30px 0;
     }
 
     .gift-box {
-      width: 160px;
-      height: 160px;
+      width: 120px;    
+      height: 120px;
       background: #ff1e56;
       border-radius: 15px;
       position: relative;
-      margin: auto;
+      margin: 50px auto 0 auto;
       cursor: pointer;
       box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
       transition: transform 0.3s;
+      z-index: 10;
     }
 
     .gift-box:hover {
@@ -51,53 +49,57 @@
     }
 
     .gift-lid {
-      width: 170px;
-      height: 60px;
+      width: 130px;
+      height: 50px;
       background: #ff0f4a;
       border-radius: 15px;
       position: absolute;
-      top: -45px;
+      top: -35px;
       left: -5px;
       transition: 0.6s ease;
     }
 
     .ribbon {
-      width: 30px;
-      height: 160px;
+      width: 20px;
+      height: 120px;
       background: gold;
       position: absolute;
-      left: 65px;
+      left: 50px;
       top: 0;
       border-radius: 10px;
     }
 
     .ribbon2 {
-      width: 160px;
-      height: 30px;
+      width: 120px;
+      height: 20px;
       background: gold;
       position: absolute;
-      top: 65px;
+      top: 50px;
       left: 0;
       border-radius: 10px;
     }
 
     .message-box {
       display: none;
-      margin-top: 25px;
+      margin-top: 30px;
       background: rgba(255,255,255,0.2);
       padding: 20px;
       border-radius: 15px;
       animation: fadeIn 1s ease;
+      max-width: 320px;
+      text-align: center;
+      position: relative;
+      z-index: 5;
     }
 
     .message-box h2 {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       margin-bottom: 10px;
     }
 
     .message-box p {
-      font-size: 1.1rem;
-      line-height: 1.6;
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
     .photos {
@@ -109,9 +111,9 @@
     }
 
     .photos img {
-      width: 90px;
-      height: 90px;
-      border-radius: 15px;
+      width: 70px;
+      height: 70px;
+      border-radius: 10px;
       object-fit: cover;
       border: 2px solid white;
     }
@@ -124,7 +126,7 @@
     .heart {
       position: absolute;
       color: white;
-      font-size: 20px;
+      font-size: 18px;
       animation: float 5s infinite;
       opacity: 0.7;
     }
@@ -135,10 +137,10 @@
     }
 
     button {
-      margin-top: 15px;
-      padding: 12px 18px;
+      margin-top: 10px;
+      padding: 10px 15px;
       border: none;
-      border-radius: 25px;
+      border-radius: 20px;
       background: white;
       color: #ff1e56;
       font-size: 1rem;
@@ -151,47 +153,66 @@
       color: black;
     }
 
+    /* Confetti style */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      pointer-events: none;
+      opacity: 0.9;
+      z-index: 100;
+    }
+
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>Happy Anniversary My Love ❤️</h1>
-    
+  <h1>Happy Anniversary My Love ❤️</h1>
+  <p>Click the gift box to open your surprise 🎁</p>
 
-    <div class="gift-box" onclick="openGift()">
-      <div class="gift-lid" id="lid"></div>
-      <div class="ribbon"></div>
-      <div class="ribbon2"></div>
-    </div>
-
-    <div class="message-box" id="message">
-      <h2>💌 My Special Gift for You</h2>
-      <p>
-        Happy Anniversary my love ❤️ <br><br>
-        You are my favorite person in the whole world 😘<br>
-        Thank you for loving me, caring for me, and staying with me 💕<br><br>
-        I promise I will always choose you 🥺❤️
-      </p>
-
-      <div class="photos">
-        <img src="https://i.ibb.co/0y0y0y0/photo1.jpg" alt="photo1">
-        <img src="https://i.ibb.co/0y0y0y0/photo2.jpg" alt="photo2">
-        <img src="https://i.ibb.co/0y0y0y0/photo3.jpg" alt="photo3">
-      </div>
-
-      <button onclick="alert('I LOVE YOU FOREVER ❤️🥺')">Click Me 😘</button>
-    </div>
+  <div class="gift-box" onclick="openGift()">
+    <div class="gift-lid" id="lid"></div>
+    <div class="ribbon"></div>
+    <div class="ribbon2"></div>
   </div>
+
+  <div class="message-box" id="message">
+    <h2>💌 My Special Gift for You</h2>
+    <p>
+      Happy Anniversary my love ❤️ <br><br>
+      You are my favorite person in the whole world 😘<br>
+      Thank you for loving me, caring for me, and staying with me 💕<br><br>
+      I promise I will always choose you 🥺❤️
+    </p>
+
+    <div class="photos">
+      <img src="p1.jpg" alt="photo1">
+      <img src="p2.jpg" alt="photo2">
+      <img src="p3.jpg" alt="photo3">
+    </div>
+
+    <button onclick="alert('I LOVE YOU FOREVER ❤️🥺')">Click Me 😘</button>
+  </div>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" src="si.mp3" loop></audio>
 
   <script>
     function openGift() {
-      document.getElementById("lid").style.transform = "rotate(-20deg) translateY(-70px)";
+      // open lid
+      document.getElementById("lid").style.transform = "rotate(-20deg) translateY(-50px)";
+      // show message
       document.getElementById("message").style.display = "block";
+      // play music in loop
+      const music = document.getElementById("bgMusic");
+      music.play();
+      music.loop = true;
+      // launch confetti
+      launchConfetti();
     }
 
     // floating hearts
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 15; i++) {
       let heart = document.createElement("div");
       heart.className = "heart";
       heart.innerHTML = "❤️";
@@ -200,7 +221,33 @@
       heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
       document.body.appendChild(heart);
     }
+
+    // Confetti animation
+    function launchConfetti() {
+      for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        confetti.style.left = Math.random() * window.innerWidth + 'px';
+        confetti.style.top = '-10px';
+        document.body.appendChild(confetti);
+
+        const fallDuration = Math.random() * 3 + 2; // 2-5 sec
+        confetti.animate([
+          { transform: `translateY(0px) rotate(0deg)` },
+          { transform: `translateY(${window.innerHeight + 20}px) rotate(${Math.random()*720}deg)` }
+        ], {
+          duration: fallDuration * 1000,
+          easing: 'linear',
+          iterations: 1,
+          fill: 'forwards'
+        });
+
+        setTimeout(() => {
+          confetti.remove();
+        }, fallDuration * 1000);
+      }
+    }
   </script>
 </body>
-
 </html>
